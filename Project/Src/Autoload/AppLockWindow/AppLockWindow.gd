@@ -31,6 +31,9 @@ var my_unique_code = "123456789"
 #      Notifications
 #-------------------------------------------------
 
+func _ready() -> void:
+	_update_request_code()
+
 #-------------------------------------------------
 #      Virtual Methods
 #-------------------------------------------------
@@ -53,6 +56,10 @@ func _on_CopyLinkButton_pressed() -> void:
 #-------------------------------------------------
 #      Private Methods
 #-------------------------------------------------
+
+func _update_request_code():
+	var ahl = AppHashLock.new()
+	ask_code_label.set_text(ahl.get_request_code(my_unique_code))
 
 #-------------------------------------------------
 #      Setters & Getters
