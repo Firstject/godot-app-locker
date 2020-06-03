@@ -1,6 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/Autoload/AppLockWindow/AppLockWindow.gd" type="Script" id=1]
 
 [node name="AppLockWindow" type="Node"]
+script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
@@ -98,7 +101,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/MarginContainer/Control/VBox/AskCodeHBox"]
+[node name="CopyLinkButton" type="LinkButton" parent="CanvasLayer/MarginContainer/Control/VBox/AskCodeHBox"]
 margin_left = 208.0
 margin_right = 239.0
 margin_bottom = 14.0
@@ -114,7 +117,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control/VBox"]
+[node name="VerifyButton" type="Button" parent="CanvasLayer/MarginContainer/Control/VBox"]
 margin_left = 160.0
 margin_top = 308.0
 margin_right = 224.0
@@ -136,3 +139,5 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/VBox/AskCodeHBox/CopyLinkButton" to="." method="_on_CopyLinkButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/VBox/VerifyButton" to="." method="_on_VerifyButton_pressed"]
