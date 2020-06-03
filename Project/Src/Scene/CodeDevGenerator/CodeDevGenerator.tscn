@@ -86,7 +86,6 @@ margin_left = 53.0
 margin_right = 349.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
-text = "------"
 align = 1
 
 [node name="CopyLinkButton" type="LinkButton" parent="MarginContainer/Control/VBox/OutputHbox"]
