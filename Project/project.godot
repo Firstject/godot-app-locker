@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Godot App Locker"
 config/icon="res://icon.png"
 
+[editor]
+
+script_templates_search_path="res://ScriptTemplates"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
