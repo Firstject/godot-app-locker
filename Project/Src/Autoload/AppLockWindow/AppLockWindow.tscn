@@ -117,7 +117,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control/VBox"]
+[node name="VerifyButton" type="Button" parent="CanvasLayer/MarginContainer/Control/VBox"]
 margin_left = 160.0
 margin_top = 308.0
 margin_right = 224.0
@@ -140,3 +140,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Control/VBox/AskCodeHBox/CopyLinkButton" to="." method="_on_CopyLinkButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Control/VBox/VerifyButton" to="." method="_on_VerifyButton_pressed"]
