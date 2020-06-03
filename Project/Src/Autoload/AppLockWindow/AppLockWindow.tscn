@@ -1,0 +1,138 @@
+[gd_scene format=2]
+
+[node name="AppLockWindow" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="BgRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0.0627451, 0.0627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 568.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -60.5
+margin_right = 60.5
+margin_bottom = 42.0
+grow_horizontal = 2
+rect_min_size = Vector2( 384, 0 )
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LockTitleLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/VBox"]
+margin_right = 384.0
+margin_bottom = 14.0
+grow_horizontal = 2
+text = "Application Locked"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LockDescLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/VBox"]
+margin_top = 46.0
+margin_right = 384.0
+margin_bottom = 94.0
+grow_horizontal = 2
+text = "To gain access to this application, you need to ask the game owner for the code (presuming the owner allowed you to do so)."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AskCodeDescLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/VBox"]
+margin_top = 126.0
+margin_right = 384.0
+margin_bottom = 174.0
+grow_horizontal = 2
+text = "To begin, copy the code below and send it to the game owner. Once you have obtained the code from the game owner, enter the password below."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AskCodeHBox" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control/VBox"]
+margin_top = 206.0
+margin_right = 384.0
+margin_bottom = 220.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="AskCodeLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/VBox/AskCodeHBox"]
+margin_left = 144.0
+margin_right = 192.0
+margin_bottom = 14.0
+grow_horizontal = 2
+text = "256714"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/MarginContainer/Control/VBox/AskCodeHBox"]
+margin_left = 208.0
+margin_right = 239.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.470588, 0.470588, 1, 1 )
+text = "Copy"
+
+[node name="PasswordLineEdit" type="LineEdit" parent="CanvasLayer/MarginContainer/Control/VBox"]
+margin_top = 252.0
+margin_right = 384.0
+margin_bottom = 276.0
+placeholder_text = "Enter password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Control/VBox"]
+margin_left = 160.0
+margin_top = 308.0
+margin_right = 224.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 4
+text = "Unlock"
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer/MarginContainer/Control/VBox"]
+visible = false
+margin_top = 343.0
+margin_right = 384.0
+margin_bottom = 357.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 0.317647, 0.317647, 1 )
+text = "Invalid password!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
