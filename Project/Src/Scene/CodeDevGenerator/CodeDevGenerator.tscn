@@ -1,0 +1,96 @@
+[gd_scene format=2]
+
+[node name="CodeDevGenerator" type="Node"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 568.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_right = 128.0
+margin_bottom = 49.0
+grow_horizontal = 2
+rect_min_size = Vector2( 384, 0 )
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DevLabel" type="Label" parent="MarginContainer/Control/VBox"]
+margin_right = 384.0
+margin_bottom = 14.0
+text = "For developer only!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateLabel" type="Label" parent="MarginContainer/Control/VBox"]
+margin_top = 30.0
+margin_right = 384.0
+margin_bottom = 61.0
+text = "Enter the following request code from a client to generate an unlock code."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RequestLineEdit" type="LineEdit" parent="MarginContainer/Control/VBox"]
+margin_top = 77.0
+margin_right = 384.0
+margin_bottom = 101.0
+align = 1
+
+[node name="Button" type="Button" parent="MarginContainer/Control/VBox"]
+margin_left = 128.0
+margin_top = 117.0
+margin_right = 256.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_horizontal = 4
+text = "Generate"
+
+[node name="OutputHbox" type="HBoxContainer" parent="MarginContainer/Control/VBox"]
+margin_top = 153.0
+margin_right = 384.0
+margin_bottom = 167.0
+
+[node name="OutputLabelTitle" type="Label" parent="MarginContainer/Control/VBox/OutputHbox"]
+margin_right = 49.0
+margin_bottom = 14.0
+text = "Output:"
+
+[node name="OutputLabel" type="Label" parent="MarginContainer/Control/VBox/OutputHbox"]
+margin_left = 53.0
+margin_right = 349.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "------"
+align = 1
+
+[node name="CopyLinkButton" type="LinkButton" parent="MarginContainer/Control/VBox/OutputHbox"]
+margin_left = 353.0
+margin_right = 384.0
+margin_bottom = 14.0
+text = "Copy"
