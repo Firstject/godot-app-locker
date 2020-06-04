@@ -81,10 +81,9 @@ func verify():
 		
 		yield(get_tree().create_timer(VERIFY_DELAY_TIME), "timeout")
 		
-		pass #TODO add remove lock window forever
+		_save_and_qfree()
 	
 	_set_buttons_disabled(false)
-
 
 #-------------------------------------------------
 #      Connections
@@ -99,6 +98,12 @@ func _on_VerifyButton_pressed() -> void:
 #-------------------------------------------------
 #      Private Methods
 #-------------------------------------------------
+
+func _save_and_qfree():
+	var app_unlock_saver = AppUnlockSaver.new()
+	
+	app_unlock_saver.save()
+	queue_free()
 
 func _update_request_code():
 	var ahl = AppHashLock.new()
