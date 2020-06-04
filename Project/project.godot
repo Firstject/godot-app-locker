@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "AppHashLock",
 "language": "GDScript",
 "path": "res://Src/Util/AppHashLock/AppHashLock.gd"
+}, {
+"base": "Reference",
+"class": "AppUnlockSaver",
+"language": "GDScript",
+"path": "res://Src/Autoload/AppLockWindow/AppUnlockSaver.gd"
 } ]
 _global_script_class_icons={
-"AppHashLock": ""
+"AppHashLock": "",
+"AppUnlockSaver": ""
 }
 
 [application]
