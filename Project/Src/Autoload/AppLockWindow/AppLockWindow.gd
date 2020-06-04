@@ -49,6 +49,7 @@ var my_unique_code = "123456789"
 #-------------------------------------------------
 
 func _ready() -> void:
+	_do_unlocked()
 	_update_request_code()
 
 #-------------------------------------------------
@@ -98,6 +99,13 @@ func _on_VerifyButton_pressed() -> void:
 #-------------------------------------------------
 #      Private Methods
 #-------------------------------------------------
+
+func _do_unlocked():
+	var app_unlock_saver = AppUnlockSaver.new()
+	
+	if app_unlock_saver.is_unlocked():
+		queue_free()
+		return
 
 func _save_and_qfree():
 	var app_unlock_saver = AppUnlockSaver.new()
