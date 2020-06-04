@@ -97,5 +97,67 @@ margin_left = 353.0
 margin_right = 384.0
 margin_bottom = 14.0
 text = "Copy"
+
+[node name="SettingsToggleButton" type="Button" parent="MarginContainer/Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.0
+margin_top = -20.0
+grow_horizontal = 0
+text = "Show/Hide Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UniqueIDPanel" type="Panel" parent="MarginContainer/Control/SettingsToggleButton"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -136.0
+margin_bottom = -32.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/Control/SettingsToggleButton/UniqueIDPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 14.0
+margin_right = -16.0
+margin_bottom = -16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UniqueLabel" type="Label" parent="MarginContainer/Control/SettingsToggleButton/UniqueIDPanel/VBox"]
+margin_right = 168.0
+margin_bottom = 14.0
+text = "Unique App ID"
+
+[node name="UniqueLineEdit" type="LineEdit" parent="MarginContainer/Control/SettingsToggleButton/UniqueIDPanel/VBox"]
+margin_top = 18.0
+margin_right = 168.0
+margin_bottom = 42.0
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+placeholder_text = "Your secret ID"
+
+[node name="UniqueTip" type="Label" parent="MarginContainer/Control/SettingsToggleButton/UniqueIDPanel/VBox"]
+margin_top = 46.0
+margin_right = 168.0
+margin_bottom = 77.0
+custom_colors/font_color = Color( 1, 1, 0.501961, 1 )
+text = "*Do not share this code to client!"
+autowrap = true
 [connection signal="pressed" from="MarginContainer/Control/VBox/GenerateButton" to="." method="_on_GenerateButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBox/OutputHbox/CopyLinkButton" to="." method="_on_CopyLinkButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/SettingsToggleButton" to="." method="_on_SettingsToggleButton_pressed"]
+[connection signal="text_changed" from="MarginContainer/Control/SettingsToggleButton/UniqueIDPanel/VBox/UniqueLineEdit" to="." method="_on_UniqueLineEdit_text_changed"]
