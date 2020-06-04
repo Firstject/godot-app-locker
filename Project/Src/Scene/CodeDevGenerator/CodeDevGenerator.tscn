@@ -64,6 +64,7 @@ margin_top = 77.0
 margin_right = 384.0
 margin_bottom = 101.0
 align = 1
+clear_button_enabled = true
 
 [node name="GenerateButton" type="Button" parent="MarginContainer/Control/VBox"]
 margin_left = 128.0
