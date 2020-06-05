@@ -32,7 +32,8 @@ Once the verification is done, this UI will free itself from the instance, allow
 
 # Improving Security
 There is a variable that might need to be changed for increased security.
-- In AppLockWindow.gd, a variable 'my_unique_id' is a password for your own application used to fetch request code and verify the unlock process."
+- In AppLockWindow.gd, a variable 'my_unique_id' is a password for your own application used to fetch request code and verify the unlock process.
+- In AppLockWindow.gd, a variable 'verify_hash' is a password used for verification process when the application begins."
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
