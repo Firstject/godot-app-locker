@@ -4,7 +4,9 @@
 extends Node
 
 """
-	Desc
+	A singleton UI that appears when the application starts.
+	
+	See editor description for more info.
 """
 
 #-------------------------------------------------
@@ -42,6 +44,7 @@ onready var pwd_line_edit = $CanvasLayer/MarginContainer/Control/VBox/PasswordLi
 onready var verify_btn = $CanvasLayer/MarginContainer/Control/VBox/VerifyButton
 onready var status_label = $CanvasLayer/MarginContainer/Control/VBox/StatusLabel
 
+# Change this to your own custom password for increased security.
 var my_unique_code = "123456789"
 
 #-------------------------------------------------
@@ -64,6 +67,8 @@ func _ready() -> void:
 #      Public Methods
 #-------------------------------------------------
 
+# Verify to remove this window if completed or raise an error message if
+# verification fails.
 func verify():
 	_set_buttons_disabled(true)
 	status_label.add_color_override("font_color", NORMAL_COLOR)
@@ -100,6 +105,7 @@ func _on_VerifyButton_pressed() -> void:
 #      Private Methods
 #-------------------------------------------------
 
+# Queue free itself if already verified. Otherwise, do nothing.
 func _do_unlocked():
 	var app_unlock_saver = AppUnlockSaver.new()
 	
@@ -107,12 +113,15 @@ func _do_unlocked():
 		queue_free()
 		return
 
+# Save the verification state by writing file to user's app directory
+# and then free itself from instance.
 func _save_and_qfree():
 	var app_unlock_saver = AppUnlockSaver.new()
 	
 	app_unlock_saver.save()
 	queue_free()
 
+# Update request code's text.
 func _update_request_code():
 	var ahl = AppHashLock.new()
 	ask_code_label.set_text(ahl.get_request_code(my_unique_code))
