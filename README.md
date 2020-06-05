@@ -15,9 +15,9 @@ These codes are not visible to the client.
 app_enc_pass + time + unique_device_id = request_code
 ```
 
-``app_enc_pass`` Encryption password for your game.
+``unique_pass`` Encryption password for your game.
 
-``time`` Time interval (e.g. 6 hours, 24 hours, 2 days, etc.). This is used to change the password automatically.
+``time`` Current year concatenated with current month and total days passed, This is used to change the password daily.
 
 ``unique_device_id`` ID given from the factory. Android and iOS only.
 
