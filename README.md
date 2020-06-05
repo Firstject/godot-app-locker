@@ -1,6 +1,9 @@
 # Godot App Locker
 A tool to lock your game or application made with Godot Engine.
 
+[![GitHub license](https://img.shields.io/github/license/Firstject/godot-app-locker)](https://github.com/Firstject/godot-app-locker/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Firstject/godot-app-locker)](https://github.com/Firstject/godot-app-locker/issues)
+
 **Minimum version requirement:** Godot v3.2 or above
 
 ### How does this work?
