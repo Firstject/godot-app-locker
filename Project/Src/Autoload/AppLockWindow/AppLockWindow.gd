@@ -47,6 +47,9 @@ onready var status_label = $CanvasLayer/MarginContainer/Control/VBox/StatusLabel
 # Change this to your own custom password for increased security.
 var my_unique_code = "123456789"
 
+# Change this to your own custom password for increased security.
+var my_hash_pass = "0246813579"
+
 #-------------------------------------------------
 #      Notifications
 #-------------------------------------------------
@@ -108,6 +111,7 @@ func _on_VerifyButton_pressed() -> void:
 # Queue free itself if already verified. Otherwise, do nothing.
 func _do_unlocked():
 	var app_unlock_saver = AppUnlockSaver.new()
+	app_unlock_saver.set_hash_pass(my_hash_pass)
 	
 	if app_unlock_saver.is_unlocked():
 		queue_free()
@@ -119,8 +123,9 @@ func _do_unlocked():
 # and then free itself from instance.
 func _save_and_qfree():
 	var app_unlock_saver = AppUnlockSaver.new()
-	
+	app_unlock_saver.set_hash_pass(my_hash_pass)	
 	app_unlock_saver.save()
+	
 	_set_paused(false)
 	queue_free()
 
