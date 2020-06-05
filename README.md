@@ -1,6 +1,8 @@
 # Godot App Locker
 A tool to lock your game or application made with Godot Engine.
 
+**Minimum version requirement:** Godot v3.2 or above
+
 ### How does this work?
 
 **Client**: A client that has this add-on added to the game will be asked for the password before the game can be entered. The password is random by the OS and can't be easily guessed (as the game don't tell that it changes every day). To obtain the password, one must ask the game owner for the code and use it to unlock the game. Once entered, there is no need to do so again when the player re-launch the app.
