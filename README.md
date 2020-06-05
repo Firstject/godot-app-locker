@@ -31,6 +31,7 @@ app_enc_pass + time + unique_device_id = request_code
 ### Limitations
 - The game owner will have to reply back with a code by number of playtesters. For example, 200 playtesters request for a code, the game owner will have to reply back to 200 playtesters (unless your app does not fix the scope by unique device id).
 - Timezone between playtesters and the game owner can vary. This may not be possible if the two are at different continents that may result in a different time from the OS.
+- If the unlock code is not used within a day, the client will have to request them again. Equally to the developer, they also have to send the unlock code within a day. 
 
 ## How to contribute?
 Not applicable.
