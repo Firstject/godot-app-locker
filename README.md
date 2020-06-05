@@ -39,5 +39,8 @@ unique_pass + time + unique_device_id = request_code
 - Timezone between playtesters and the game owner can vary. This may not be possible if the two are at different continents that may result in a different time from the OS.
 - If the unlock code is not used within a day, the client will have to request them again. Equally to the developer, they also have to send the unlock code within a day. 
 
+## Roadmap
+https://trello.com/b/jHFsDi34/godot-app-locker
+
 ## How to contribute?
 Not applicable.
