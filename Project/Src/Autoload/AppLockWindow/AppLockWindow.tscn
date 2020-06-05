@@ -4,6 +4,35 @@
 
 [node name="AppLockWindow" type="Node"]
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "A singleton UI that appears when the application starts. For clients only.
+
+<< Expand to see full detail >>
+
+# Description
+The client will be asked for the password before the game can be entered. The request password is generated daily and can be used to ask the game owner to generate an unlock code. The request code is unique to each client's device id and cannot be used for other purposes. This is a one-time process and will not be asked next time the application is launched.
+
+# Remixing UI
+You may re-arrange or modify the UI elements for your own game whether you wish. Some node's structure are fixed by the script and may need to be updated through the script.
+
+# Copying AppLockWindow To Your Project
+There are dependencies for this scene to function. Below are the files that may need to be copied too.
+- res://Src/Autoload/AppLockWindow/AppLockWindow.tscn
+- res://Src/Autoload/AppLockWindow/AppLockWindow.gd
+- res://Src/Autoload/AppLockWindow/AppUnlockSaver.gd
+- res://Src/Util/AppHashLock/AppHashLock.gd
+After opening this scene in your own project, Godot will ask you to fix missing dependencies. Locate the file 'AppLockWindow.gd' and this scene will be able to open for editing.
+
+# Applying For Use In Your Project
+This scene is designed to work as a singleton. Simply add this scene to Autoload and the UI will show up at any time the game is launched.
+
+# Remembering Verification State
+Once the verification is done, this UI will free itself from the instance, allowing the client to play the game normally. The verification file will be saved in application data directory at \"user://AppUnlock/session.dat\" which is used to verify everytime the application starts. This file will work only for each client's device id and cannot be used to verify other devices' application, as doing so will not work.
+
+# Improving Security
+There is a variable that might need to be changed for increased security.
+- In AppLockWindow.gd, a variable 'my_unique_id' is a password for your own application used to fetch request code and verify the unlock process."
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128

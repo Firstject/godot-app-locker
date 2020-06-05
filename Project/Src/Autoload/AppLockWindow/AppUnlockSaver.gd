@@ -6,7 +6,11 @@ extends Reference
 class_name AppUnlockSaver
 
 """
-	Todo: Add desc
+	Saves, checks, and remove verification file in user's app data directory,
+	remembering the state whether a client succeed in verifying the unlock code.
+	Hash password can be used for verification process when the application
+	is launched, which prevents client from replacing a verification file from
+	another source.
 """
 
 #-------------------------------------------------
@@ -47,14 +51,20 @@ const SAVE_FILE = "session.dat"
 #      Public Methods
 #-------------------------------------------------
 
+# Save state to user's app data directory.
+# Hash password kept in this class is used for additional security.
+# An optional parameter can be used to override current hash password.
 func save():
 	_make_dir()
 	_store_save_data(get_data())
 
+# Remove verification file from user's app data directory.
 func relock():
 	var dir := Directory.new()
 	dir.remove(SAVE_PATH + SAVE_FILE)
 
+# Check whether the verification file exists and is match with the current
+# hash password. Returns true if all of the above are correct, or false if not.
 func is_unlocked() -> bool:
 	var f := File.new()
 	var f_open_result = f.open(SAVE_PATH + SAVE_FILE, File.READ)
@@ -72,6 +82,7 @@ func is_unlocked() -> bool:
 	
 	return result
 
+# Returns MD5 hash of unique_device_id and current hash password in String.
 func get_data() -> String:
 	return str(OS.get_unique_id(), HASH_PASSWORD).md5_text()
 

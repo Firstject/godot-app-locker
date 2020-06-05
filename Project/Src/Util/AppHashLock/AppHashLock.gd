@@ -6,7 +6,8 @@ extends Reference
 class_name AppHashLock
 
 """
-	AppHashLock 
+	AppHashLock generates request code and unlock code for use in unlocking
+	application. Can check whether an unlock code matches with a request code.
 """
 
 #-------------------------------------------------
@@ -21,6 +22,7 @@ class_name AppHashLock
 #      Constants
 #-------------------------------------------------
 
+# Length of request code and unlock code
 const REQ_CODE_LENGTH = 6
 
 #-------------------------------------------------
@@ -43,6 +45,11 @@ const REQ_CODE_LENGTH = 6
 #      Public Methods
 #-------------------------------------------------
 
+# Returns a request code in String.
+# First parameter is a password of your application,
+# second optional parameter is current year concatenated with current month and
+# total days passed,
+# and third optional parameter is a unique device id.
 func get_request_code(
 	unique_pass : String,
 	day_passed : String = _get_day_code(),
@@ -54,9 +61,12 @@ func get_request_code(
 	
 	return encoded_text
 
+# Return unlock code from a request code and a unique password of your
+# application.
 func get_unlock_code(request_code : String, unique_pass : String) -> String:
 	return _get_encoded_text(request_code + unique_pass)
 
+# Returns true if an unlock code match with a request code from unique password.
 func is_match(unlock_code : String, unique_pass : String) -> bool:
 	return unlock_code == get_unlock_code(get_request_code(unique_pass), unique_pass)
 
