@@ -112,6 +112,8 @@ func _do_unlocked():
 	if app_unlock_saver.is_unlocked():
 		queue_free()
 		return
+	else:
+		_set_paused(true)
 
 # Save the verification state by writing file to user's app directory
 # and then free itself from instance.
@@ -119,6 +121,7 @@ func _save_and_qfree():
 	var app_unlock_saver = AppUnlockSaver.new()
 	
 	app_unlock_saver.save()
+	_set_paused(false)
 	queue_free()
 
 # Update request code's text.
@@ -133,6 +136,9 @@ func _is_code_match() -> bool:
 func _set_buttons_disabled(set : bool):
 	pwd_line_edit.set_editable(!set)
 	verify_btn.set_disabled(set)
+
+func _set_paused(set : bool):
+	get_tree().paused = set
 
 #-------------------------------------------------
 #      Setters & Getters

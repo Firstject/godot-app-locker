@@ -3,6 +3,7 @@
 [ext_resource path="res://Src/Autoload/AppLockWindow/AppLockWindow.gd" type="Script" id=1]
 
 [node name="AppLockWindow" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "A singleton UI that appears when the application starts. For clients only.
