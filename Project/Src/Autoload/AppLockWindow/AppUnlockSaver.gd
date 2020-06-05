@@ -25,15 +25,15 @@ class_name AppUnlockSaver
 #      Constants
 #-------------------------------------------------
 
-# Change this to anything (for minor security)
-const HASH_PASSWORD = "Chnage_This"
-
 const SAVE_PATH = "user://AppUnlock/"
 const SAVE_FILE = "session.dat"
 
 #-------------------------------------------------
 #      Properties
 #-------------------------------------------------
+
+# Hash password for verification process when the application starts
+var hash_pass : String setget set_hash_pass, get_hash_pass
 
 #-------------------------------------------------
 #      Notifications
@@ -54,9 +54,9 @@ const SAVE_FILE = "session.dat"
 # Save state to user's app data directory.
 # Hash password kept in this class is used for additional security.
 # An optional parameter can be used to override current hash password.
-func save():
+func save(hash_pass_override : String = get_hash_pass()):
 	_make_dir()
-	_store_save_data(get_data())
+	_store_save_data(get_data(hash_pass_override))
 
 # Remove verification file from user's app data directory.
 func relock():
@@ -65,7 +65,8 @@ func relock():
 
 # Check whether the verification file exists and is match with the current
 # hash password. Returns true if all of the above are correct, or false if not.
-func is_unlocked() -> bool:
+# An optional parameter can be used to override current hash password.
+func is_unlocked(hash_pass_override : String = get_hash_pass()) -> bool:
 	var f := File.new()
 	var f_open_result = f.open(SAVE_PATH + SAVE_FILE, File.READ)
 	var result : bool = true
@@ -75,7 +76,7 @@ func is_unlocked() -> bool:
 	
 	# Read the content from saved file and compare
 	# if the session is equal to this unique device id.
-	if f.get_as_text() != get_data():
+	if f.get_as_text() != get_data(hash_pass_override):
 		result = false
 	
 	f.close()
@@ -83,8 +84,9 @@ func is_unlocked() -> bool:
 	return result
 
 # Returns MD5 hash of unique_device_id and current hash password in String.
-func get_data() -> String:
-	return str(OS.get_unique_id(), HASH_PASSWORD).md5_text()
+# An optional parameter can be used to override current hash password.
+func get_data(hash_pass_override : String = get_hash_pass()) -> String:
+	return str(OS.get_unique_id(), hash_pass_override).md5_text()
 
 #-------------------------------------------------
 #      Connections
@@ -114,3 +116,9 @@ func _store_save_data(data : String):
 #-------------------------------------------------
 #      Setters & Getters
 #-------------------------------------------------
+
+func set_hash_pass(val : String) -> void:
+	hash_pass = val
+
+func get_hash_pass() -> String:
+	return hash_pass
