@@ -4,6 +4,30 @@
 
 [node name="CodeDevGenerator" type="Node"]
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "A scene for game developer to generate unlock code from a request code.
+<< Expand to see full detail >>
+
+# Description
+Developer can use this scene to generate an unlock code (presuming the client that requests it is allowed).
+
+# Remixing UI
+You may re-arrange or modify the UI elements for your own game whether you wish. Some node's structure are fixed by the script and may need to be updated through the script.
+
+# Copying CodeDevGenerator To Your Project
+There are dependencies for this scene to function. Below are the files that may need to be copied too.
+- res://Src/Scene/CodeDevGenerator/CodeDevGenerator.tscn
+- res://Src/Scene/CodeDevGenerator/CodeDevGenerator.gd
+- res://Src/Util/AppHashLock/AppHashLock.gd
+After opening this scene in your own project, Godot will ask you to fix missing dependencies. Locate the file 'CodeDevGenerator.gd' and this scene will be able to open for editing.
+
+# Applying For Use In Your Project
+Copy this scene and scripts as described above.
+
+# Improving Security
+There is a variable that might need to be changed for increased security.
+- In CodeDevGenerator.gd, an export variable 'unique_app_id' is a password for your own application used to fetch request code and verify the unlock process."
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
