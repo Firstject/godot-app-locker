@@ -12,7 +12,7 @@ A tool to lock your game or application made with Godot Engine.
 These codes are not visible to the client.
 
 ```py
-app_enc_pass + time + unique_device_id = request_code
+unique_pass + time + unique_device_id = request_code
 ```
 
 ``unique_pass`` Encryption password for your game.
