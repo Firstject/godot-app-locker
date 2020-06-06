@@ -23,10 +23,14 @@ extends Node
 #      Properties
 #-------------------------------------------------
 
+onready var ctrl = $MarginContainer/Control
+onready var output_ctrl = $MarginContainer/OutputCtrl
 onready var request_line_edit = $MarginContainer/Control/VBox/RequestLineEdit
-onready var output_label = $MarginContainer/Control/VBox/OutputHbox/OutputLabel
+onready var output_label = $MarginContainer/OutputCtrl/VBox/OutputLabel
 onready var unique_id_panel = $MarginContainer/Control/SettingsToggleButton/UniqueIDPanel
 onready var unique_id_line_edit = $MarginContainer/Control/SettingsToggleButton/UniqueIDPanel/VBox/UniqueLineEdit
+
+onready var copied_label_anim = $MarginContainer/OutputCtrl/VBox/OutputLabel/CopiedLabel/AnimationPlayer
 
 export (String) var unique_app_id = "123456789"
 
@@ -59,15 +63,20 @@ func generate():
 
 func _on_GenerateButton_pressed() -> void:
 	generate()
+	_to_output_page()
 
-func _on_CopyLinkButton_pressed() -> void:
+func _on_CopyButton_pressed() -> void:
 	OS.set_clipboard(output_label.text)
+	copied_label_anim.play("Float")
 
 func _on_SettingsToggleButton_pressed() -> void:
 	_toggle_unique_id_panel_visible()
 
 func _on_UniqueLineEdit_text_changed(new_text: String) -> void:
 	_update_unique_id_setting(new_text)
+
+func _on_ReturnBtn_pressed() -> void:
+	_to_generate_page()
 
 #-------------------------------------------------
 #      Private Methods
@@ -81,6 +90,14 @@ func _update_unique_id_setting_text():
 
 func _update_unique_id_setting(new_text: String):
 	unique_app_id = new_text
+
+func _to_generate_page():
+	ctrl.visible = true
+	output_ctrl.visible = false
+
+func _to_output_page():
+	ctrl.visible = false
+	output_ctrl.visible = true
 
 #-------------------------------------------------
 #      Setters & Getters
