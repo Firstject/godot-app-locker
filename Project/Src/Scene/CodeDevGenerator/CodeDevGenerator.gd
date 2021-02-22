@@ -34,11 +34,18 @@ onready var copied_label_anim = $MarginContainer/OutputCtrl/VBox/OutputLabel/Cop
 
 export (String) var unique_app_id = "123456789"
 
+
+var unique_id_saver := UniqueIDSaver.new()
+
 #-------------------------------------------------
 #      Notifications
 #-------------------------------------------------
 
 func _ready() -> void:
+	var _unique_app_id = unique_id_saver.load() # Load previous entered value from previous session
+	if not _unique_app_id.empty(): # Session file exists, begin loading
+		unique_app_id = _unique_app_id
+	
 	_update_unique_id_setting_text()
 
 #-------------------------------------------------
@@ -63,6 +70,7 @@ func generate():
 
 func _on_GenerateButton_pressed() -> void:
 	generate()
+	unique_id_saver.save(unique_app_id)
 	_to_output_page()
 
 func _on_CopyButton_pressed() -> void:
