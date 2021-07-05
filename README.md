@@ -3,7 +3,7 @@
 [![GitHub license](https://img.shields.io/github/license/Firstject/godot-app-locker)](https://github.com/Firstject/godot-app-locker/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/Firstject/godot-app-locker)](https://github.com/Firstject/godot-app-locker/issues)
 
-A tool to lock your game or application made with Godot Engine.
+A tool to lock your game or application locally made with Godot Engine.
 
 ### How does this work?
 
