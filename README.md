@@ -47,4 +47,4 @@ Not applicable.
 
 # License
 
-All code of this project is licensed under the MIT license (LICENSE).
+All code of this project is licensed under the MIT license [LICENSE](LICENSE).
