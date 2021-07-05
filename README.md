@@ -44,3 +44,7 @@ https://trello.com/b/jHFsDi34/godot-app-locker
 
 ## How to contribute?
 Not applicable.
+
+# License
+
+All code of this project is licensed under the MIT license (LICENSE).
